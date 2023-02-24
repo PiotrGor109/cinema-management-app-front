@@ -1,0 +1,106 @@
+<div class="page-backgorund">
+  <div class="title"> List of Reservations</div>
+  <div class="list-tasks-titles"><p style="width: 5%">ID</p> <p style="width: 18%">Customer name</p> <p style="width: 25%">Phone number</p> <p style="width: 8%">Show ID</p> <p style="width: 0%"></p><p style="width: 20%">Reserved place</p><p style="width: 15%">Payment</p></div>
+  <ng-container *ngFor="let reservationReada of reservationsRead; let i=index">
+    <div class="list-tasks">
+      <p style="width: 5%">{{reservationReada.id}}.</p>
+      <p style="width: 18%; word-break: break-all">{{reservationReada.customerName}}</p>
+      <p style="width: 24%">{{reservationReada.customerPhone}}</p>
+      <p style="width: 10%">{{reservationReada.seats[0].showId}}</p>
+      <p style="width: 18%">{{reservationReada.seats[0].id}}</p>
+      <p style="width: 20%">303,304,305</p>
+
+      <p (click)="showEditWindowReservation(reservationReada)" style="width: 3%"><a class="edit-button" data-toggle="modal" data-target="#ModalEdit" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a></p>
+      <p (click)="onDeleteReservation(reservationReada.id)" style="width: 3%"><a class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a></p>
+<!--      <p (click)="onShowDescription(task)" style="width: 3%"><a class="edit-button" data-toggle="modal" data-target="#ModalDescription"  data-placement="top" data-original-title="Description"><i class="bi bi-info-circle-fill"></i></a></p>-->
+    </div>
+  </ng-container>
+<!--  <button type="button" class="btn-btn-primary-button" data-toggle="modal" data-target="#exampleModal">-->
+<!--    Add new Reservation-->
+<!--  </button>-->
+
+
+
+
+<!--   //Modal window EDIT Reservation-->
+  <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form #editForm="ngForm">
+            <h5 class="modal-title" id="exampleModalLabelEdit">Edit task with Id: <b>{{modelEdit.id}}</b></h5>
+            <div class="form-group">
+              <div>
+                <br>
+                <label for="customerName">Customer name:</label>
+                <input type="text" [(ngModel)]="modelEdit.customerName" id="customerName" name="customerName" class="form-control"  placeholder="Customer name">
+              </div>
+              <input class="form-control" name="id" [(ngModel)]="modelEdit.id" id="id" [defaultValue]="modelEdit.id" type="hidden" placeholder="id">
+              <br>
+              <label for="customerPhone">Customer phone:</label>
+              <input type="text" [(ngModel)]="modelEdit.customerPhone" name="customerPhone" id="customerPhone" class="form-control"  placeholder="Customer phone">
+              <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+              <button (click)="onEditReservation(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--  &lt;!&ndash;  MODAL WINDOW ADD TASK&ndash;&gt;-->
+<!--  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <form #form="ngForm">-->
+<!--            <div class="form-group">-->
+<!--              <input required type="text" [(ngModel)]="modelAdd.taskName" class="form-control" name="taskName" placeholder="Task name">-->
+<!--              <input required type="datetime-local" [(ngModel)]="modelAdd.taskDate" class="form-control" name="taskDate"  placeholder="taskDate">-->
+<!--              <input required type="text" [(ngModel)]="modelAdd.description" class="form-control" name="description"  placeholder="description">-->
+<!--              <select required [(ngModel)]="group.taskGroupName" name="taskGroupName" id="selectGroup">-->
+<!--                <option *ngFor="let taskgroup of taskGroupsSelect" [ngValue]="taskgroup.taskGroupName">{{taskgroup.taskGroupName}}</option>-->
+<!--              </select>-->
+<!--              <input type="text" [(ngModel)]="group.id" [defaultValue]="" class="form-control" name="group.id" type="hidden">-->
+<!--              <br>-->
+<!--              <label for="doneCheckbox">Is done: </label>-->
+<!--              <input style="margin: 5px" type="checkbox" [(ngModel)]="modelAdd.done" checked="true" value="true" name="done" id="doneCheckbox" placeholder="isDone">-->
+<!--              <br>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <button type="button" id="z" data-dismiss="modal" class="btn btn-secondary">Close</button>-->
+<!--              <button (click)="onAddTask()" type="submit" data-dismiss="modal" class="btn btn-primary" [disabled]="form.invalid">Save changes</button>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+<!--  &lt;!&ndash; Modal window DESCRIPTION &ndash;&gt;-->
+<!--  <div class="modal fade" id="ModalDescription" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <form #descForm="ngForm">-->
+<!--            <div class="form-group" >-->
+<!--              <p><label type="text">ID: <b>{{modelDescription.id}}</b></label></p>-->
+<!--              <p><label style="word-break: break-all" type="text">Task name: <b>{{modelDescription.taskName}}</b></label></p>-->
+<!--              <p><label style="word-break: break-all" type="text">Task date: <b>{{modelDescription.taskDate}}</b></label></p>-->
+<!--              <p><label style="word-break: break-all" type="text">Description: <b>{{modelDescription.description}}</b></label></p>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <button type="button" id="a" data-dismiss="modal" class="btn btn-secondary">Close</button>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>

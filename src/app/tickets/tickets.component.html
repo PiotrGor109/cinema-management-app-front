@@ -1,0 +1,116 @@
+
+
+<div class="background-theme">
+  <div id ="mainContainer" class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <h5 class="card-title" style="font-size: 20px; font-weight: bold">Ticket types <span class="color:black">({{tickets.length}})</span></h5>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+          <div>
+            <ul class="nav nav-pills">
+
+            </ul>
+          </div>
+          <div>
+            <button type="button" class="btn-btn-primary-button" data-toggle="modal" data-target="#exampleModal">
+              Add new ticket
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div style="word-break: break-word">
+    <div id="mainContent" class="row">
+      <div *ngFor="let ticket of tickets" class="col-xl-3 col-sm-6">
+        <div class="card" style="min-height: 150px; min-width: 275px">
+            <div class="d-flex align-items-center">
+              <div><img src='assets/images/tickets/ticket.png' alt="" style="margin: 2px; padding: 2px" class="avatar-md rounded-circle img-thumbnail" /></div>
+              <div class="form-group">
+                <h5 class="text-card-bold"><a style="margin: 5px" href="#" class="text-dark"> {{ticket.ticketType}}</a></h5>
+                <div class="flex-1 ms-3">
+                  <h5 class="text-card"><a style="margin: 5px" href="#" class="text-dark"> {{ticket.price}} PLN</a></h5>
+                </div>
+              </div>
+              <div>
+                <a (click)=showEditWindowTask(ticket) class="edit-button" style="padding: 3px; margin:3px;" data-toggle="modal" data-target="#ModalEdit" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                <a (click)="onDeleteTicket(ticket.id)" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+              </div>
+              </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <!--  MODAL WINDOW ADD TICKET-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <form #form="ngForm">
+              <div class="form-group">
+                <input required type="text" [(ngModel)]="modelAdd.ticketType"  class="form-control" name="ticketType" placeholder="Ticket type">
+                <input required type="number" min="1" [(ngModel)]="modelAdd.price" class="form-control" name="price"  placeholder="price">
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="z" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                <button (click)="onAddTicket()" type="submit" data-dismiss="modal" class="btn btn-primary" [disabled]="form.invalid">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- Modal window EDIT-->
+  <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form #editForm="ngForm">
+            <h5 class="modal-title" id="exampleModalLabelEdit">Edit task with Id: <b>{{modelEdit.id}}</b></h5>
+            <div class="form-group">
+              <div>
+                <br>
+                <label for="ticketType">Task name:</label>
+                <input type="text" [(ngModel)]="modelEdit.ticketType" id="ticketType" name="ticketType" class="form-control"  placeholder="Task name">
+              </div>
+              <input class="form-control" name="id" [(ngModel)]="modelEdit.id" id="id" [defaultValue]="modelEdit.id" type="hidden" placeholder="id">
+              <br>
+              <label for="price">Description:</label>
+              <input type="number" min="0" [(ngModel)]="modelEdit.price" name="price" id="price" class="form-control"  placeholder="Task description">
+              <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+              <button (click)="onEditTicket(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</div>
+

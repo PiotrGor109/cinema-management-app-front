@@ -1,1 +1,165 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+.navbar-main-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden;*/
+  background-color: #666;
+  position: relative;
+  display: inline-block;
+  top: 0;
+  width: 100%;
+  font-size: 20px;
+}
+
+li {
+  float: left;
+  border-right: 3px solid #bbb;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: goldenrod;
+}
+
+
+body{margin-top:20px;
+  background-color:#eee;
+  word-wrap: break-word;
+}
+/*.card {*/
+/*  margin-bottom: 26px;*/
+/*  box-shadow: 0 2px 3px #e4e8f0;*/
+/*}*/
+.card {
+  word-wrap: break-word;
+  margin-bottom: 26px;
+  box-shadow: 0 2px 3px #e4e8f0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 270px;
+  max-width: 270px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #eff0f2;
+  border-radius: 1rem;
+  background-color: rgba(255, 225, 129, 1);
+  background-image: linear-gradient(325deg, rgba(255, 225, 129, 1) 23%, rgba(183, 160, 66, 1) 56%);
+  padding: 5px;
+}
+.avatar-md {
+  height: 4rem;
+  width: 4rem;
+  min-width: 4rem;
+}
+.rounded-circle {
+  border-radius: 50%!important;
+}
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #f1f3f7;
+  border: 1px solid #eff0f2;
+  border-radius: 0.75rem;
+}
+.avatar-title {
+  align-items: center;
+  background-color: #3b76e1;
+  color: #fff;
+  display: flex;
+  font-weight: 500;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+.bg-soft-primary {
+  background-color: rgba(59,118,225,.25)!important;
+}
+a {
+  text-decoration: none!important;
+}
+.badge-soft-danger {
+  color: #f56e6e !important;
+  background-color: rgba(245,110,110,.1);
+}
+.badge-soft-success {
+  color: #63ad6f !important;
+  background-color: rgba(99,173,111,.1);
+}
+.mb-0 {
+  margin-bottom: 0!important;
+}
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 75%;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.75rem;
+  word-wrap: break-word;
+}
+
+table, th, td {
+  border: 0px solid;
+  table-layout: fixed;
+  margin-top: 100px;
+}
+
+
+
+
+.btn-btn-primary-button {
+  margin: 15px auto;
+  margin-left: 15%;
+  alignment: left;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 16px;
+  width: max-content;
+  position: relative;
+  border-radius: 15px;
+  text-align: left;
+  background-color: royalblue;
+  color: white;
+}
+
+.background-theme{
+  box-shadow: 0 0 10px 1px rgb(0 0 0);
+  min-height: 1000px;
+  padding: 20px;
+  background-color: rgba(232, 210, 148, 1);
+  background-image: linear-gradient(325deg, rgba(232, 210, 148, 1) 23%, rgba(119, 117, 107, 1) 56%);
+}
+
+
+
+/*.card-body{*/
+/*  position: fixed;*/
+/*  min-width: 270px;*/
+/*  max-width: 270px;*/
+/*  padding: 5px;*/
+/*  word-wrap: normal;*/
+/*}*/
+
+
