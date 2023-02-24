@@ -1,5 +1,6 @@
 Cinema management reservation system.
-Spring + Angular
+Backened - Spring, Frontend - Angular
+
 
 
 ![aaa](https://user-images.githubusercontent.com/106313912/221145416-c93ce09d-0e4e-486b-b59f-f70fd835bd77.png)
