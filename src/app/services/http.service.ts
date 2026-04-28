@@ -17,11 +17,11 @@ export class HttpService {
   constructor(private httpClient: HttpClient) {
   }
 
-  private urlShow = "http://localhost:8080/shows";
-  private urlCinemaHall = "http://localhost:8080/cinemahalls";
-  private urlTicket = "http://localhost:8080/tickets";
-  private urlSeat = "http://localhost:8080/seats";
-  private urlReservation = "http://localhost:8080/reservations";
+  private urlShow = "api/shows";
+  private urlCinemaHall = "api/cinemahalls";
+  private urlTicket = "api/tickets";
+  private urlSeat = "api/seats";
+  private urlReservation = "api/reservations";
 
 
 
