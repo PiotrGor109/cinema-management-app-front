@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-app-fe
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-app-fe
+  template:
+    metadata:
+      labels:
+        app: cinema-app-fe
+    spec:
+      containers:
+        - name: cinema-app-fe
+          image: harbor.local/library/cinema-app-front:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
