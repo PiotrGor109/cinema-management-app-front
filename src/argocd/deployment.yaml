@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cinema-app-fe
-          image: harbor.local/library/cinema-app-front:5
+          image: harbor.local/library/cinema-app-front:6
           imagePullPolicy: Always
           ports:
             - containerPort: 80
